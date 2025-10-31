@@ -1,15 +1,17 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { TrendingUp, Target, Trophy, Plus, X } from "lucide-react"
+import { TrendingUp, Target, Trophy, Plus, Gamepad2, MessageCircle } from "lucide-react"
 import DashboardNav from "@/components/dashboard-nav"
 import FinancialOverview from "@/components/financial-overview"
 import RecentTransactions from "@/components/recent-transactions"
 import LearningPath from "@/components/learning-path"
 
 export default function Page() {
+  const router = useRouter()
   const [mounted, setMounted] = useState(false)
   const [finances, setFinances] = useState({
     balance: 2450,
@@ -143,14 +145,25 @@ export default function Page() {
                     <CardTitle className="text-base">Quick Actions</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-2">
-                    <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 flex gap-2">
+                    <Button 
+                      onClick={() => router.push('/expenses')}
+                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 flex gap-2"
+                    >
                       <Plus className="w-4 h-4" /> Add Transaction
                     </Button>
-                    <Button variant="outline" className="w-full bg-transparent">
-                      Play Mini-Game
+                    <Button 
+                      onClick={() => router.push('/games')}
+                      variant="outline" 
+                      className="w-full bg-transparent flex gap-2"
+                    >
+                      <Gamepad2 className="w-4 h-4" /> Play Mini-Game
                     </Button>
-                    <Button variant="outline" className="w-full bg-transparent">
-                      Chat with AI
+                    <Button 
+                      onClick={() => router.push('/assistant')}
+                      variant="outline" 
+                      className="w-full bg-transparent flex gap-2"
+                    >
+                      <MessageCircle className="w-4 h-4" /> Chat with AI
                     </Button>
                   </CardContent>
                 </Card>
