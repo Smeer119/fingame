@@ -44,15 +44,6 @@ export default function DashboardNav() {
           )
         })}
       </div>
-
-      {/* Bottom Section */}
-      <div className="absolute bottom-6 left-6 right-6 space-y-4">
-        <div className="p-4 rounded-lg bg-sidebar-accent/10 border border-sidebar-border">
-          <h3 className="font-semibold text-sm text-sidebar-foreground">Today's Challenge</h3>
-          <p className="text-xs text-muted-foreground mt-2">Track your spending for a bonus reward</p>
-          <button className="mt-3 text-xs font-semibold text-sidebar-primary">Start Challenge</button>
-        </div>
-      </div>
     </nav>
   )
 }
